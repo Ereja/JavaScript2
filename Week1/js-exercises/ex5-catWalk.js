@@ -44,3 +44,4 @@ function continueWalk() {
     interval = setInterval(catWalk, 50);
   }
 }
+//I know that is not a good solution as I have too much repetitive code but thats the only solution I could come up with
