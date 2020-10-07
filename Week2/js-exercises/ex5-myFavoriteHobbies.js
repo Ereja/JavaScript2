@@ -8,8 +8,14 @@
  Put the list items in an unordered list
  */
 
+  const unorderedList = document.querySelector('ul');
+
 function createHTMLList(arr) {
-  // your code goes in here
+  arr.forEach(hobby => {
+    const list = document.createElement('li');
+    unorderedList.appendChild(list);
+    list.innerText = hobby;
+  })
 }
 
 const myHobbies = [
@@ -19,3 +25,4 @@ const myHobbies = [
   'Hanging out with friends',
   'Going to the gym',
 ];
+createHTMLList(myHobbies);
