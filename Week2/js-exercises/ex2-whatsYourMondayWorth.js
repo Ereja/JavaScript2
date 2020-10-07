@@ -8,15 +8,16 @@
  Multiply each duration by a per - hour rate for billing and sum it all up.
  Output a formatted Euro amount, rounded to Euro cents, e.g: €11.34.
  Make sure the function can be used on any array of objects that contain a duration property with a number value
-
  */
 
-
 function dayWorth(tasks, hourlyRate) {
-  // put your code in here, the function does returns a euro formatted string
+  const timePlusMoney = tasks.map((taskTime) => (taskTime.duration / 60) * hourlyRate);
+  const totalMoney = timePlusMoney.reduce((total, money) => total + money, 0);
+  return `\u20AC${totalMoney.toFixed(2)}`;
 }
 
-const mondayTasks = [{
+const mondayTasks = [
+  {
     name: 'Daily standup',
     duration: 30, // specified in minutes
   },
@@ -34,5 +35,5 @@ const mondayTasks = [{
   },
 ];
 
-console.log(dayWorth(mondayTasks, 25))
-console.log(dayWorth(mondayTasks, 13.37))
+console.log(dayWorth(mondayTasks, 25));
+console.log(dayWorth(mondayTasks, 13.37));
