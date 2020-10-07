@@ -9,7 +9,8 @@
  */
 
 function collectiveAge(people) {
-  // return the sum of age for all the people
+  const sumAllTheAges = people.reduce((total, age) => total + age.age, 0);
+  return sumAllTheAges;
 }
 
 const hackYourFutureMembers = [{
@@ -30,4 +31,4 @@ const hackYourFutureMembers = [{
   },
 ];
 
-console.log("The collective age of the HYF team is: " + collectiveMembers(hackYourFutureMembers));
+console.log("The collective age of the HYF team is: " + collectiveAge(hackYourFutureMembers));
