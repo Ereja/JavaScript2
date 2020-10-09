@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+/*reset*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*variables for easy change of colors. Not neccesarry for such small project but handy to get used to*/
+:root {
+  --background-color: rgb(29, 42, 85);
+  --border-color: rgb(68, 157, 184);
+  --buttons-font-color: rgb(207, 200, 200);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--buttons-font-color);
+  background: var(--background-color);
+  padding-top: 5rem;
+  height: 100vh;
+}
+
+h2 {
+  margin: 1rem 0;
+}
+
+.time-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.time-nmb-select {
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+
+.timer-container {
+  margin: 2rem 30rem;
+  border: 5px solid var(--border-color);
+  border-radius: 25px;
+  padding: 0.5rem 0 3rem;
+}
+
+.session-timer {
+  font-size: 5rem;
+  font-weight: 800;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--buttons-font-color);
+  margin: 0 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+  color: var(--border-color);
+  transition: 1s;
+}
+
+button:disabled {
+  cursor: default;
+  color: gray;
+}
