@@ -37,6 +37,7 @@ function createBookList(books) {
     const newPar = document.createElement('p');
     newList.appendChild(newPar);
     const newImg = document.createElement('img');
+    newImg.src = book.coverImg;
     newList.appendChild(newImg);
 
     //styles
@@ -47,14 +48,6 @@ function createBookList(books) {
     //adding text to paragraph
     newPar.innerText = `${bookTitle} by ${bookAuthor}`;
 
-    //book covers
-    if (bookAuthor === 'Don Norman') {
-      newImg.src = './book covers/norman.jpg';
-    } else if (bookAuthor === 'Brian Christian') {
-      newImg.src = './book covers/christian.jpg';
-    } else {
-      newImg.src = './book covers/hunt.jpg';
-    }
     //background color change
     if (read === true) {
       newList.style.backgroundColor = 'green';
@@ -69,16 +62,19 @@ const books = [
     title: 'The Design of Everyday Things',
     author: 'Don Norman',
     alreadyRead: false,
+    coverImg: './book covers/norman.jpg'
   },
   {
     title: 'The Most Human Human',
     author: 'Brian Christian',
     alreadyRead: true,
+    coverImg: './book covers/christian.jpg'
   },
   {
     title: 'The Pragmatic Programmer',
     author: 'Andrew Hunt',
     alreadyRead: true,
+    coverImg: './book covers/hunt.jpg'
   },
 ];
 
