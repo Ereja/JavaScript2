@@ -10,6 +10,9 @@
   4. Have the function execute when it 's loading in the browser
 
  */
+
+'use strict';
+
 const body = document.body;
 const heading = document.createElement('h1');
 body.appendChild(heading);
@@ -18,7 +21,6 @@ heading.style.cssText = 'text-align: center;';
 const clock = document.createElement('p');
 heading.appendChild(clock);
 
-('use strict');
 function displayCurrentTime() {
   // your code goes in here
   const date = new Date();
