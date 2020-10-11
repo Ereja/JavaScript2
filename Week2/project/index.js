@@ -20,8 +20,9 @@ const startBtn = document.getElementById('start');
 const pauseBtn = document.getElementById('pause');
 const restartBtn = document.getElementById('stop');
 
-//creating minute variable;
+
 let minute = 25;
+let countDownInt;
 
 //increament one minute at a time:
 function addMinute() {
@@ -39,25 +40,22 @@ function removeMinute() {
   }
 }
 
-//interval variable
-let countDownInt;
-
 function countDown() {
-  let time = `${minute}` * 60;
+  let countDownDate = new Date().getTime() + `${minute}` * 60 * 1000;
   countDownInt = setInterval(function () {
     startBtn.disabled = true;
     incrementTimeBtn.disabled = true;
     decrementTimeBtn.disabled = true;
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    sessionDurationTime.textContent = `${minutes} : ${seconds}`;
-    time--;
-    if (time <= 0) {
+    let timeNow = new Date().getTime();
+    let timing = countDownDate - timeNow;
+    let minutes = Math.floor((timing %(1000 * 60 * 60)) / (1000 * 60))
+    let seconds = Math.floor((timing % (1000 * 60)) / 1000);
+      sessionDurationTime.textContent = `${minutes}:${seconds < 10 ? '0' : '' }${seconds}`;
+    if (timing <= 0) {
       clearInterval(countDown);
       sessionDurationTime.textContent = 'Time is up!';
     }
-  }, 1);
+  }, 1000);
 }
 
  function pauseCountDown() {
