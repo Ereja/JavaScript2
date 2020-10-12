@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
   <title>Pomodoro Clock</title>
 </head>
+
 <body>
   <h1>Pomodoro Clock</h1>
   <h2>Session length</h2>
   <div class="time-select">
     <button id="add-time">
-<i class="fas fa-arrow-up fa-2x"></i>
+      <i class="fas fa-arrow-up fa-2x"></i>
     </button>
     <p id="duration-select" class="time-nmb-select">25</p>
     <button id="decrease-time">
@@ -22,7 +24,9 @@
   </div>
   <div class="timer-container">
     <h2>Session</h2>
-    <p id="duration-timer" class="session-timer">25 : 00</p>
+    <p class="session-timer">
+      <span id="minutes">00</span> : <span id="seconds">00</span>
+    </p>
   </div>
   <div class="play-stop-container">
     <button id="start"><i class="far fa-play-circle fa-4x"></i></button>
@@ -31,4 +35,5 @@
   </div>
   <script src="index.js"></script>
 </body>
+
 </html>
