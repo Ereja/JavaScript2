@@ -8,32 +8,33 @@
   If the timer finishes the timer should be replaced by the message: Time 's up!
  * 
  */
+
 'use strict';
 
 //getting all the needed elements:
 const incrementTimeBtn = document.getElementById('add-time');
 const decrementTimeBtn = document.getElementById('decrease-time');
 const setSessionLength = document.getElementById('duration-select');
+const sessionDurationTime = document.getElementById('duration-timer');
 const minutesIndicator = document.getElementById('minutes');
 const secondsIndicator = document.getElementById('seconds');
 const startBtn = document.getElementById('start');
 const pauseBtn = document.getElementById('pause');
 const restartBtn = document.getElementById('stop');
 
-
 const interval = 1000;
 const time = new Date();
 let minute = 25;
 let countDownInt;
 
-//increament one minute at a time:
+//increament one minute at a time and storing minutes in resetTime:
 function addMinute() {
   minute++;
   setSessionLength.textContent = minute;
   resetTime()
 }
 
-//decreamenting one minute:
+//decreamenting one minute and storing minutes in resetTime:
 function removeMinute() {
   if (minute > 0) {
     minute--;
@@ -42,6 +43,7 @@ function removeMinute() {
   }
 }
 
+//minutes for showing in session and updating
 function resetTime() {
   time.setMinutes(minute);
   time.setSeconds(0);
@@ -52,22 +54,28 @@ function showTime() {
   minutesIndicator.textContent = showTwoDigits(time.getMinutes());
   secondsIndicator.textContent = showTwoDigits(time.getSeconds());
 }
+
+//always showing two (last) digits
 function showTwoDigits(number) {
   return ('0' + number).slice(-2);
 }
+
+
 function countDown() {
   if (time.getMinutes() === 0 && time.getSeconds() === 0) {
-    restartCountDown();
+    sessionDurationTime.textContent = 'Time`s up!'
   } else {
     time.setSeconds(time.getSeconds() - interval / 1000);
     showTime();
   }
+  
 }
 function play() {
   countDownInt = setInterval(countDown, interval);
   disableBtn()
 }
 
+//disabling buttons if countDownInt is running, enabling buttons on reset
 function disableBtn() {
   if (countDownInt) {
   startBtn.disabled = true;
@@ -93,6 +101,7 @@ function restartCountDown() {
   disableBtn();
 }
 
+//numbers stored in resetTime shows
 resetTime();
 
 //event listeners:
