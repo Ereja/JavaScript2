@@ -15,7 +15,6 @@
 const incrementTimeBtn = document.getElementById('add-time');
 const decrementTimeBtn = document.getElementById('decrease-time');
 const setSessionLength = document.getElementById('duration-select');
-const sessionDurationTime = document.getElementById('duration-timer');
 const minutesIndicator = document.getElementById('minutes');
 const secondsIndicator = document.getElementById('seconds');
 const startBtn = document.getElementById('start');
@@ -36,7 +35,7 @@ function addMinute() {
 
 //decreamenting one minute and storing minutes in resetTime:
 function removeMinute() {
-  if (minute > 0) {
+  if (minute > 1) {
     minute--;
     setSessionLength.textContent = minute;
     resetTime()
@@ -60,10 +59,10 @@ function showTwoDigits(number) {
   return ('0' + number).slice(-2);
 }
 
-
 function countDown() {
   if (time.getMinutes() === 0 && time.getSeconds() === 0) {
-    sessionDurationTime.textContent = 'Time`s up!'
+    minutesIndicator.textContent = 'Time`s up!';
+    secondsIndicator.textContent = '';
   } else {
     time.setSeconds(time.getSeconds() - interval / 1000);
     showTime();
