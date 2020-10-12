@@ -8,19 +8,21 @@
   If the timer finishes the timer should be replaced by the message: Time 's up!
  * 
  */
-
- 'use strict'
+'use strict';
 
 //getting all the needed elements:
 const incrementTimeBtn = document.getElementById('add-time');
 const decrementTimeBtn = document.getElementById('decrease-time');
 const setSessionLength = document.getElementById('duration-select');
-const sessionDurationTime = document.getElementById('duration-timer');
+const minutesIndicator = document.getElementById('minutes');
+const secondsIndicator = document.getElementById('seconds');
 const startBtn = document.getElementById('start');
 const pauseBtn = document.getElementById('pause');
 const restartBtn = document.getElementById('stop');
 
 
+const interval = 1000;
+const time = new Date();
 let minute = 25;
 let countDownInt;
 
@@ -28,7 +30,7 @@ let countDownInt;
 function addMinute() {
   minute++;
   setSessionLength.textContent = minute;
-  sessionDurationTime.textContent = `${minute} : 00`;
+  resetTime()
 }
 
 //decreamenting one minute:
@@ -36,46 +38,66 @@ function removeMinute() {
   if (minute > 0) {
     minute--;
     setSessionLength.textContent = minute;
-    sessionDurationTime.textContent = `${minute} : 00`;
+    resetTime()
   }
 }
 
-function countDown() {
-  let countDownDate = new Date().getTime() + `${minute}` * 60 * 1000;
-  countDownInt = setInterval(function () {
-    startBtn.disabled = true;
-    incrementTimeBtn.disabled = true;
-    decrementTimeBtn.disabled = true;
-    let timeNow = new Date().getTime();
-    let timing = countDownDate - timeNow;
-    let minutes = Math.floor((timing %(1000 * 60 * 60)) / (1000 * 60))
-    let seconds = Math.floor((timing % (1000 * 60)) / 1000);
-      sessionDurationTime.textContent = `${minutes}:${seconds < 10 ? '0' : '' }${seconds}`;
-    if (timing <= 0) {
-      clearInterval(countDown);
-      sessionDurationTime.textContent = 'Time is up!';
-    }
-  }, 1000);
+function resetTime() {
+  time.setMinutes(minute);
+  time.setSeconds(0);
+  showTime();
 }
 
- function pauseCountDown() {
-   clearInterval(countDownInt);
-   startBtn.disabled = false;
- }
+function showTime() {
+  minutesIndicator.textContent = showTwoDigits(time.getMinutes());
+  secondsIndicator.textContent = showTwoDigits(time.getSeconds());
+}
+function showTwoDigits(number) {
+  return ('0' + number).slice(-2);
+}
+function countDown() {
+  if (time.getMinutes() === 0 && time.getSeconds() === 0) {
+    restartCountDown();
+  } else {
+    time.setSeconds(time.getSeconds() - interval / 1000);
+    showTime();
+  }
+}
+function play() {
+  countDownInt = setInterval(countDown, interval);
+  disableBtn()
+}
 
- function restartCountDown() {
-   minute = 25;
-   setSessionLength.textContent = minute;
-   sessionDurationTime.textContent = `${minute} : 00`;
-   startBtn.disabled = false;
-   incrementTimeBtn.disabled = false;
-   decrementTimeBtn.disabled = false;
-   clearInterval(countDownInt);
- }
+function disableBtn() {
+  if (countDownInt) {
+  startBtn.disabled = true;
+  incrementTimeBtn.disabled = true;
+  decrementTimeBtn.disabled = true;
+  } else {
+  startBtn.disabled = false;
+  incrementTimeBtn.disabled = false;
+  decrementTimeBtn.disabled = false;
+  }
+}
+
+function pauseCountDown() {
+  clearInterval(countDownInt);
+  countDownInt = false;
+  startBtn.disabled = false;
+}
+
+function restartCountDown() {
+  clearInterval(countDownInt);
+  countDownInt = false;
+  resetTime();
+  disableBtn();
+}
+
+resetTime();
 
 //event listeners:
 incrementTimeBtn.addEventListener('click', addMinute);
 decrementTimeBtn.addEventListener('click', removeMinute);
-startBtn.addEventListener('click', countDown);
+startBtn.addEventListener('click', play);
 pauseBtn.addEventListener('click', pauseCountDown);
 restartBtn.addEventListener('click', restartCountDown);
