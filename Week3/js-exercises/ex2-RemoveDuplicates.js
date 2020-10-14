@@ -15,21 +15,26 @@ does not return anything but removes any duplicate elements from the array.
 
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 
-function removeDuplicates(letter) {
-  // return letter.filter((a,b) => letter.indexOf(a) === b);
-  return [...new Set(letter)]
+// function removeDuplicates(letter) {
+//   returnletter.filter((a,b) => letter.indexOf(a) === b);
+//   return [...new Set(letter)];
+// }
+
+  function removeDuplicates(letter) {
+  return letter
+    .sort()
+    .filter((item, pos, ary) => {
+      return !pos || item != ary[pos - 1];
+    });
 }
+console.log(letters)
 
 removeDuplicates(letters);
 console.log(removeDuplicates(letters))
-/*returns [ 'a', 'b', 'c', 'd', 'e', 'f' ] which is equal to if (letters === ['a', 'b', 'c', 'd', 'e', 'f'])
-but I do not get "Hooray!" */
 
-
-//filter method returns ['a', 'b', 'c', 'd', 'e', 'f']
-//new set method returns ['a', 'b', 'c', 'd', 'e', 'f']
-//answer on class chat on slack: It’s because arrays are compared as references and two arrays may be equal only if they reference the same variable.  
 
 if (letters === ['a', 'b', 'c', 'd', 'e', 'f'])
   console.log("Hooray!")
+
+
 
