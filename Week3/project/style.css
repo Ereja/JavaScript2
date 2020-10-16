@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.726)),
+    url(/img/dan-gold-E6HjQaB7UEA-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.5rem;
+  color: rgb(221, 201, 201);
+  height: 100vh;
+}
+
+
+/* flexbox */
+body,
+.container-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  border: 1px solid rgba(221, 201, 201, 0.609);
+  box-shadow: 3px 3px rgba(231, 227, 227, 0.418);
+  width: 500px;
+  max-width: 500px;
+  height: 90vh;
+  background-color: rgba(26, 3, 3, 0.671);
+  padding: 0 1.5rem;
+}
+
+h1, h3 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.tip {
+  text-align: center;
+}
+
+input,
+select {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: right;
+  background-color: rgba(221, 201, 201, 0.383);
+  color: #fff;
+}
+
+option {
+  background-color: rgb(63, 6, 6);
+}
+
+span {
+  position: absolute; 
+  margin-left: 5px; 
+  margin-top: 10px; 
+  z-index: 999;
+}
+
+/*Removing arrows from input field*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.container-btn {
+  margin: 2rem 0;
+}
+
+.calc-btn {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgba(221, 201, 201, 0.383);
+  padding: 20px;
+  border: 4px solid #494949;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+}
+
+.calc-btn:hover {
+  background: rgba(26, 3, 3, 0.671);
+  border-color: rgba(221, 201, 201, 0.609);
+  transition: all 0.4s ease 0s;
+}
+
