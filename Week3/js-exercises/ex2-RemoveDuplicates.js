@@ -15,26 +15,18 @@ does not return anything but removes any duplicate elements from the array.
 
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 
-// function removeDuplicates(letter) {
-//   returnletter.filter((a,b) => letter.indexOf(a) === b);
-//   return [...new Set(letter)];
-// }
-
-  function removeDuplicates(letter) {
-  return letter
-    .sort()
-    .filter((item, pos, ary) => {
-      return !pos || item != ary[pos - 1];
-    });
+function removeDuplicates(letter) {
+  //without brackets new set would create an  object, not an array
+  let newArray =  [...new Set(letter)];
+  letter.splice(0, letter.length, ...newArray);
 }
-console.log(letters)
 
 removeDuplicates(letters);
-console.log(removeDuplicates(letters))
+console.log(letters) // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
 
 
 if (letters === ['a', 'b', 'c', 'd', 'e', 'f'])
   console.log("Hooray!")
-
+//but current array will never be equal to previous array even if they share same content
 
 
