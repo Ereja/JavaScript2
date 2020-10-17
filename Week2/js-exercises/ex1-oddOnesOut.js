@@ -17,15 +17,8 @@ function doubleEvenNumbers(numbers) {
 }
  */
 const myNumbers = [1, 2, 3, 4];
-//using filter to get only even numbers:
-const evenNumbers = myNumbers.filter((number) => number % 2 === 0);
-console.log(evenNumbers);
-//using map to double all the numbers
-const doubleEvenNumbers = evenNumbers.map((number) => number * 2);
-console.log(doubleEvenNumbers);
 
-//we could also combine filter and map together: (NOT SURE IF THIS WOULD BE APPROPRIATE WAY TO WRITE HIGHER ORDER FUNCTION???)
-const evenNumbersDoubled = myNumbers
-  .filter((number) => number % 2 === 0)
-  .map((number) => number * 2);
-console.log(evenNumbersDoubled);
+  function doubleEvenNumbers(numbers) {
+  const evenNumbersDoubled = numbers.filter((number) => number % 2 === 0).map((number) => number * 2);
+  return evenNumbersDoubled;
+  }
