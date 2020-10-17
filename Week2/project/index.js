@@ -30,7 +30,7 @@ let countDownInt;
 function addMinute() {
   minute++;
   setSessionLength.textContent = minute;
-  resetTime()
+  resetTime();
 }
 
 //decreamenting one minute and storing minutes in resetTime:
@@ -38,7 +38,7 @@ function removeMinute() {
   if (minute > 1) {
     minute--;
     setSessionLength.textContent = minute;
-    resetTime()
+    resetTime();
   }
 }
 
@@ -71,7 +71,7 @@ function countDown() {
 }
 function play() {
   countDownInt = setInterval(countDown, interval);
-  disableBtn()
+  disableBtn();
 }
 
 //disabling buttons if countDownInt is running, enabling buttons on reset
