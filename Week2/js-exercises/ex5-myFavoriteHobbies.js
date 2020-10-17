@@ -8,9 +8,10 @@
  Put the list items in an unordered list
  */
 
-  const unorderedList = document.querySelector('ul');
+  
 
 function createHTMLList(arr) {
+  const unorderedList = document.querySelector('ul');
   arr.forEach(hobby => {
     const list = document.createElement('li');
     unorderedList.appendChild(list);
