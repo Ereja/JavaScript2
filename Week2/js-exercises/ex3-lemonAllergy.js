@@ -12,10 +12,9 @@
  */
 
 function takeOutLemons(basket) {
-  const noLemons = basket.filter((lemon) => lemon !== 'Lemon');
-  return `My mom bought me a fruit basket, containing ${noLemons.join(', ')}!`;
+  const lemon = basket.filter((fruit) => fruit !== 'Lemon');
+  return `My mom bought me a fruit basket, containing ${lemon.join(', ')}!`;
 }
 
 const fruitBasket = ['Apple', 'Lemon', 'Grapefruit', 'Lemon', 'Banana', 'Watermelon', 'Lemon'];
 
-console.log(takeOutLemons(fruitBasket));
