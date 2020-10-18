@@ -47,6 +47,7 @@ function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
   function sayFive() {
     console.log('sayFive');
   }
+  //just not exaclty sure what should be inside sayThree and sayFive functions
 
 threeFive(10, 15, sayThree, sayFive);
 
