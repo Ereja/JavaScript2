@@ -1,3 +1,4 @@
+'use strict';
 /**
  
  ** Exercise 5: The lottery machine **

@@ -1,3 +1,4 @@
+'use strict';
 /**
  
  ** Exercise 1: Add Six **
@@ -9,6 +10,8 @@ Call the function three times. The return values should be:
  15, 24,  33
 
  */
+
+
 
 function createBase(number) {
   return function() {

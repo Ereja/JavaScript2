@@ -1,3 +1,4 @@
+'use strict';
 /**
  
  ** Exercise 2: The lottery machine **
@@ -12,7 +13,6 @@ does not return anything but removes any duplicate elements from the array.
 
 
 // WRITE YOUR FUNCTION HERE
-
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 
 function removeDuplicates(letter) {
