@@ -1,3 +1,5 @@
+'use strict';
+
 const billAmount = document.getElementById('bill');
 const serviceQlt = document.getElementById('service');
 const peopleNmb = document.getElementById('bill-sharing');
